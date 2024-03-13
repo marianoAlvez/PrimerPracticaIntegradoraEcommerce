@@ -1,6 +1,6 @@
 const fs = require("fs");
 const { v4: uuidv4 } = require('uuid');
-const { ensureFileExists } = require('../utils');
+const { ensureFileExists } = require('../../utils');
 
 class CartManager {
 
