@@ -26,3 +26,5 @@ class CartsService {
         return await cart.save();
     }
 }
+
+module.exports = CartsService;

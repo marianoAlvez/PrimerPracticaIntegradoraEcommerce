@@ -28,7 +28,7 @@ app.listen(port, () => {
 });
 
 const connectMongoDB = async ()=>{
-    const stringConnection = 'mongodb://localhost:27017/ecommerce?retryWrites=true&w=majority' //todo pasar a .env
+    const stringConnection = 'mongodb://127.0.0.1:27017/ecommerce?retryWrites=true&w=majority' //todo pasar a .env
     try {
         await mongoose.connect(stringConnection);
         console.log("Conectado con exito a MongoDB usando Moongose.");

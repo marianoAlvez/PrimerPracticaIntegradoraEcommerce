@@ -25,3 +25,5 @@ class ProductsService {
         return await this.productsModel.findByIdAndDelete(productId);
     }
 }
+
+module.exports = ProductsService;
