@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const ProductsManager = require('../../services/file_services/products.manager');
-const productsManager = new ProductsManager();
+const ProductsService = require('../../services/db_services/products.service');
+const productsService = new ProductsManager();
 
 // GET /api/products
 router.get('/', async (req, res) => {
   const { limit } = req.query;
   try {
-    const products = await productsManager.getAllProducts(parseInt(limit));
+    const products = await productsService.getAllProducts(parseInt(limit));
     res.status(200).send({ status: "success", payload: products });
   } catch (error) {
     console.log(error);
@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
 router.get('/:pid', async (req, res) => {
   const { pid } = req.params;
   try {
-    const product = await productsManager.getProductById(pid);
+    const product = await productsService.getProductById(pid);
     if (!product) {
       return res.status(404).send({ status: "error",  error: 'Product not found' });
     }
@@ -34,7 +34,7 @@ router.get('/:pid', async (req, res) => {
 router.post('/', async (req, res) => {
   const newProduct = req.body;
   try {
-    const product = await productsManager.addProduct(newProduct);
+    const product = await productsService.addProduct(newProduct);
     res.status(201).send({ status: "success", payload: product });
   } catch (error) {
     console.log(error);
@@ -47,7 +47,7 @@ router.put('/:pid', async (req, res) => {
   const { pid } = req.params;
   const updatedProductData = req.body;
   try {
-    const updatedProduct = await productsManager.updateProductById(pid, updatedProductData);
+    const updatedProduct = await productsService.updateProductById(pid, updatedProductData);
     res.status(201).send({ status: "success", payload: updatedProduct });
   } catch (error) {
     console.log(error);
@@ -59,7 +59,7 @@ router.put('/:pid', async (req, res) => {
 router.delete('/:pid', async (req, res) => {
   const { pid } = req.params;
   try { 
-    await productsManager.deleteProductById(pid);
+    await productsService.deleteProductById(pid);
      res.status(205).send({ status: "success", payload: null});
   } catch (error) {
     console.log(error);

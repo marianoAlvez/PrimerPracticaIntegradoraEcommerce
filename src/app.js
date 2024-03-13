@@ -1,7 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const productRouter = require('./routes/products.route');
-const cartRouter = require('./routes/carts.route');
+const productFsRouter = require('./routes/file_routes/products.route');
+const cartFsRouter = require('./routes/file_routes/carts.route');
+const productRoutes = require('./routes/db_routes/products.route');
+const cartRoutes = require('./routes/db_routes/carts.route');
 const multer = require('./utils');
 
 //Declarando Express para usar sus funciones.
@@ -11,10 +13,13 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-//Routes
-app.use('/api/products', productRouter);
-app.use('/api/carts', cartRouter);
-
+/** ★━━━━━━━━━━━★ routes ★━━━━━━━━━━━★ */
+// con FileSystem
+app.use('/fs/products', productFsRouter);
+app.use('/fs/carts', cartFsRouter);
+// con MongoDB
+app.use('/api/products', productRoutes);
+app.use('/api/carts', cartRoutes);
 
 
 const port = 8080; //todo pasar a .env
