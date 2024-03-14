@@ -37,57 +37,57 @@ Este proyecto está bajo la [Licencia MIT](LICENSE).
 ## Productos
 
 - `Busco Productos`
-GET localhost:8080/api/products/
+GET localhost:8080/api/products/<br>
 
 - `Busco Producto por ID`
-GET localhost:8080/api/products/:pid
+GET localhost:8080/api/products/:pid<br>
 
 - `Creo un Producto`
-POST localhost:8080/api/products/
-    BODY {
-        "title": "Product 2",
-        "description": "Description of product 2",
-        "code": "P002",
-        "price": 300.99,
-        "status": false,
-        "stock": 45,
-        "category": "Category A",
-        "thumbnails": [
-            "image3.jpg",
-            "image4.jpg"
-        ]
-    }
+POST localhost:8080/api/products/<br>
+    BODY {<br>
+        "title": "Product 2",<br>
+        "description": "Description of product 2",<br>
+        "code": "P002",<br>
+        "price": 300.99,<br>
+        "status": false,<br>
+        "stock": 45,<br>
+        "category": "Category A",<br>
+        "thumbnails": [<br>
+            "image3.jpg",<br>
+            "image4.jpg"<br>
+        ]<br>
+    }<br>
 
 - `Actualizo un Producto`
-PUT localhost:8080/api/products/:pid
-    BODY {
-        "title": "Product 2",
-        "description": "Description of product 2",
-        "code": "P002",
-        "price": 100,
-        "status": false,
-        "stock": 10,
-        "category": "Category A",
-        "thumbnails": [
-            "image3.jpg",
-            "image4.jpg"
-        ]
-    }
+PUT localhost:8080/api/products/:pid<br>
+    BODY {<br>
+        "title": "Product 2",<br>
+        "description": "Description of product 2",<br>
+        "code": "P002",<br>
+        "price": 100,<br>
+        "status": false,<br>
+        "stock": 10,<br>
+        "category": "Category A",<br>
+        "thumbnails": [<br>
+            "image3.jpg",<br>
+            "image4.jpg"<br>
+        ]<br>
+    }<br>
 
 - `Borro un Producto`
-DELETE localhost:8080/api/products/:pid
+DELETE localhost:8080/api/products/:pid<br>
 
 ## Carrito
 
 - `Busco Carrito por ID`
-GET localhost:8080/api/cart/:cid
+GET localhost:8080/api/cart/:cid<br>
 
 - `Creo un Carrito`
-POST localhost:8080/api/cart/
+POST localhost:8080/api/cart/<br>
 
 - `Agrego un Producto al Carrito`
-POST localhost:8080/api/cart/:cid/products/:pid
-    BODY {
+POST localhost:8080/api/cart/:cid/products/:pid<br>
+    BODY {<br>
 	"quantity": 1
     }
     
